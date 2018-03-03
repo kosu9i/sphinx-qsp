@@ -28,8 +28,13 @@ import copy
 import json
 import os
 
-from sphinx import quickstart
-from sphinx.quickstart import ask_user, generate, do_prompt, nonempty, boolean
+import sphinx
+if sphinx.version_info[0:2] >= (1, 7):
+    from sphinx import quickstart
+    from sphinx.quickstart.cmd import ask_user, generate, do_prompt, nonempty, boolean
+else:
+    from sphinx import quickstart
+    from sphinx.quickstart import ask_user, generate, do_prompt, nonempty, boolean
 
 __version__ = "0.6"
 
